@@ -13,7 +13,7 @@ const httpStatusText = require("./utils/httpStatusText");
 const app = express();
 const port = process.env.PORT || 3001;
 const url = process.env.MONGO_URL;
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 mongoose.connect(url).then(() => {
   console.log("mongoDB server started");
