@@ -76,4 +76,5 @@ Welcome to the Modern Real Estate Website, a full-stack web application built wi
 
 ## License
 - This project is licensed under the MIT License.
-- Feel free to copy and use this section for your GitHub README file.
+  ```css
+  Feel free to copy and use this section for your GitHub README file.
