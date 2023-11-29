@@ -26,10 +26,14 @@ app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/listing", listingRouter);
 
-app.use(express.static(path.join(__dirname, "frontend", "dist")));
+const __dirName = path.resolve();
+const staticPath = path.join(__dirName, "/frontend/dist");
+
+app.use(express.static(staticPath));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+  const indexPath = path.join(__dirname, "frontend", "dist", "index.html");
+  res.sendFile(indexPath);
 });
 
 app.all("*", (req, res, next) => {
