@@ -62,7 +62,7 @@ Welcome to the Modern Real Estate Website, a full-stack web application built wi
    cd frontend && npm start
 
 ## Usage
-- Visit the deployed application at [https://dream-house-h997.onrender.com/].
+- Visit the deployed application at [https://dream-house-h997.onrender.com].
   
 ## Contributing
 
