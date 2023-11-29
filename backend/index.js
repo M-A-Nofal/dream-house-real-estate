@@ -32,7 +32,7 @@ const staticPath = path.join(__dirName, "/frontend/dist");
 app.use(express.static(staticPath));
 
 app.get("*", (req, res) => {
-  const indexPath = path.join(__dirname, "frontend", "dist", "index.html");
+  const indexPath = path.join(__dirName, "frontend", "dist", "index.html");
   res.sendFile(indexPath);
 });
 
