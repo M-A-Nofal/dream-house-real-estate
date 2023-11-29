@@ -13,7 +13,6 @@ const httpStatusText = require("./utils/httpStatusText");
 const app = express();
 const port = process.env.PORT || 3001;
 const url = process.env.MONGO_URL;
-// const __dirname = path.resolve();
 
 mongoose.connect(url).then(() => {
   console.log("mongoDB server started");
@@ -27,7 +26,7 @@ app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/listing", listingRouter);
 
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
+app.use(express.static(path.join(__dirname, "frontend", "dist")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
