@@ -26,6 +26,10 @@ const About = () => {
         should be an exciting and rewarding experience, and we are dedicated to
         making that a reality for each and every one of our clients.
       </p>
+      <p className="mb-4 text-slate-700">
+        Discover the Dream House difference—where your dreams become reality in
+        the world of real estate.
+      </p>
     </div>
   );
 };

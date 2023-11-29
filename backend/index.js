@@ -3,7 +3,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const path = require("node:path");
 
 const userRoute = require("./routes/user.route");
 const authRoute = require("./routes/auth.route");
@@ -13,25 +12,32 @@ const httpStatusText = require("./utils/httpStatusText");
 const app = express();
 const port = process.env.PORT || 3001;
 const url = process.env.MONGO_URL;
-const __dirname = path.resolve();
 
 mongoose.connect(url).then(() => {
   console.log("mongoDB server started");
 });
 
+// Middleware for parsing request body
 app.use(express.json());
 app.use(cookieParser());
+
+// Middleware for handling CORS POLICY
+// Option 1: Allow All Origins with Default of cors(*)
 app.use(cors());
+// Option 2: Allow Custom Origins
+// app.use(
+//   cors({
+//     origin: 'http://localhost:3000',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type'],
+//   })
+// );
 
 app.use("/api/user", userRoute);
+
 app.use("/api/auth", authRoute);
+
 app.use("/api/listing", listingRouter);
-
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-});
 
 app.all("*", (req, res, next) => {
   res.status(404).json({
